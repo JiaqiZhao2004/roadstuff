@@ -3,6 +3,8 @@
 A Minecraft modification by Mapper
 For Minecraft 1.17.1
 
+Updated for Minecraft 1.18.2
+
 
 Road Stuff is a Minecraft modification which adds road blocks and items related to roads.
 

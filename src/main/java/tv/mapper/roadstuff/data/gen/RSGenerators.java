@@ -2,9 +2,9 @@ package tv.mapper.roadstuff.data.gen;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import tv.mapper.roadstuff.RoadStuff;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -17,17 +17,17 @@ public class RSGenerators
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(new RSRecipes(generator));
-        generator.addProvider(new RSLootTables(generator));
-        generator.addProvider(new RSBlockStates(generator, modid, existingFileHelper));
-        generator.addProvider(new RSBlockModels(generator, modid, existingFileHelper));
-        generator.addProvider(new RSItemModels(generator, modid, existingFileHelper));
+        generator.addProvider(true,new RSRecipes(generator));
+        generator.addProvider(true,new RSLootTables(generator));
+        generator.addProvider(true,new RSBlockStates(generator, modid, existingFileHelper));
+        generator.addProvider(true,new RSBlockModels(generator, modid, existingFileHelper));
+        generator.addProvider(true,new RSItemModels(generator, modid, existingFileHelper));
 
         RSBlockTags rsBlockTags = new RSBlockTags(generator, modid, existingFileHelper);
 
-        generator.addProvider(rsBlockTags);
-        generator.addProvider(new RSItemTags(generator, rsBlockTags, existingFileHelper));
-        generator.addProvider(new RSLang(generator, modid, "en_us"));
-        generator.addProvider(new RSLang(generator, modid, "fr_fr"));
+        generator.addProvider(true,rsBlockTags);
+        generator.addProvider(true,new RSItemTags(generator, rsBlockTags, existingFileHelper));
+        generator.addProvider(true,new RSLang(generator, modid, "en_us"));
+        generator.addProvider(true,new RSLang(generator, modid, "fr_fr"));
     }
 }

@@ -3,8 +3,7 @@ package tv.mapper.roadstuff.world.item;
 import java.util.List;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -30,8 +29,8 @@ public class BlockItemPaintBucket extends BlockItem
             int paint = (stack.getTag().getInt("paint") * 100) / 8;
             if(paint < 10)
                 color = "X";
-            list.add(new TextComponent(new TranslatableComponent("roadstuff.message.brush.gui.color").getString() + color));
-            list.add(new TextComponent(new TranslatableComponent("roadstuff.message.brush.gui.paint").getString() + paint + "%"));
+            list.add(Component.literal(Component.translatable("roadstuff.message.brush.gui.color").getString() + color));
+            list.add(Component.literal(Component.translatable("roadstuff.message.brush.gui.paint").getString() + paint + "%"));
         }
     }
 }

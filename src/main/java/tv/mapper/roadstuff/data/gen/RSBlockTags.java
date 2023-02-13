@@ -8,11 +8,12 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 import tv.mapper.mapperbase.data.BaseTags;
 import tv.mapper.mapperbase.data.gen.BaseBlockTags;
 import tv.mapper.roadstuff.data.RSTags;
 import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
+
+import static tv.mapper.roadstuff.world.level.block.RSBlockRegistry.nameToPaintableBlockMap;
 
 public class RSBlockTags extends BaseBlockTags
 {
@@ -25,6 +26,18 @@ public class RSBlockTags extends BaseBlockTags
     {
         this.tag(RSTags.Blocks.ASPHALT).add(RSBlockRegistry.ASPHALT.get());
         this.tag(RSTags.Blocks.ASPHALT_ROAD).add(RSBlockRegistry.ASPHALT.get(), RSBlockRegistry.ASPHALT_SLOPE.get());
+
+        this.tag(RSTags.Blocks.ASPHALT).add(RSBlockRegistry.RED_ASPHALT.get());
+        this.tag(RSTags.Blocks.ASPHALT_ROAD).add(RSBlockRegistry.RED_ASPHALT.get(), RSBlockRegistry.RED_ASPHALT_SLOPE.get());
+
+        this.tag(RSTags.Blocks.ASPHALT).add(RSBlockRegistry.GREEN_ASPHALT.get());
+        this.tag(RSTags.Blocks.ASPHALT_ROAD).add(RSBlockRegistry.GREEN_ASPHALT.get(), RSBlockRegistry.GREEN_ASPHALT_SLOPE.get());
+
+        this.tag(RSTags.Blocks.ASPHALT).add(RSBlockRegistry.BLUE_ASPHALT.get());
+        this.tag(RSTags.Blocks.ASPHALT_ROAD).add(RSBlockRegistry.BLUE_ASPHALT.get(), RSBlockRegistry.BLUE_ASPHALT_SLOPE.get());
+
+        this.tag(RSTags.Blocks.ASPHALT).add(RSBlockRegistry.YELLOW_ASPHALT.get());
+        this.tag(RSTags.Blocks.ASPHALT_ROAD).add(RSBlockRegistry.YELLOW_ASPHALT.get(), RSBlockRegistry.YELLOW_ASPHALT_SLOPE.get());
 
         this.tag(RSTags.Blocks.CONCRETE).add(RSBlockRegistry.CONCRETE.get());
         this.tag(RSTags.Blocks.CONCRETE_ROAD).add(RSBlockRegistry.CONCRETE.get(), RSBlockRegistry.CONCRETE_SLOPE.get());
@@ -42,19 +55,21 @@ public class RSBlockTags extends BaseBlockTags
         this.tag(Tags.Blocks.ORES).add(RSBlockRegistry.BITUMEN_ORE.get());
         this.tag(Tags.Blocks.STORAGE_BLOCKS).add(RSBlockRegistry.BITUMEN_BLOCK.get());
 
-        for(RegistryObject<Block> block : RSBlockRegistry.MOD_PAINTABLEBLOCKS)
-        {
-            String[] raw = block.get().getDescriptionId().split("_");
+        for (String key : nameToPaintableBlockMap.keySet()) {
+         //   if (!key.matches(".*[0-9]$")) continue;
+            Block block = nameToPaintableBlockMap.get(key).get();
+
+            String[] raw = block.getDescriptionId().split("_");
 
             if(raw[0].contains("asphalt"))
             {
-                this.tag(RSTags.Blocks.ASPHALT).add(block.get());
-                this.tag(RSTags.Blocks.ASPHALT_ROAD).add(block.get());
+                this.tag(RSTags.Blocks.ASPHALT).add(block);
+                this.tag(RSTags.Blocks.ASPHALT_ROAD).add(block);
             }
             else
             {
-                this.tag(RSTags.Blocks.CONCRETE).add(block.get());
-                this.tag(RSTags.Blocks.CONCRETE_ROAD).add(block.get());
+                this.tag(RSTags.Blocks.CONCRETE).add(block);
+                this.tag(RSTags.Blocks.CONCRETE_ROAD).add(block);
             }
         }
 

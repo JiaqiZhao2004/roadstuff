@@ -13,6 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import tv.mapper.mapperbase.data.BaseTags;
 import tv.mapper.mapperbase.data.gen.BaseRecipes;
@@ -34,6 +35,11 @@ public class RSRecipes extends BaseRecipes
         ShapedRecipeBuilder.shaped(RSBlockRegistry.ASPHALT_SLOPE.get(), 8).pattern("i ").pattern(" i").define('i', RSTags.Items.ASPHALT).unlockedBy("has_asphalt", has(RSTags.Items.ASPHALT)).save(consumer);
         ShapedRecipeBuilder.shaped(RSBlockRegistry.CONCRETE_SLOPE.get(), 8).pattern("i ").pattern(" i").define('i', RSTags.Items.CONCRETE).unlockedBy("has_concrete", has(RSTags.Items.CONCRETE)).save(consumer);
         // Asphalt
+        ShapedRecipeBuilder.shaped(RSBlockRegistry.RED_ASPHALT.get(), 8).define('#',RSBlockRegistry.ASPHALT.get()).define('X', Items.RED_DYE).pattern("###").pattern("#X#").pattern("###").group("stained_asphalt").unlockedBy("has_asphalt", has(RSTags.Items.ASPHALT)).save(consumer);
+        ShapedRecipeBuilder.shaped(RSBlockRegistry.GREEN_ASPHALT.get(), 8).define('#',RSBlockRegistry.ASPHALT.get()).define('X', Items.GREEN_DYE).pattern("###").pattern("#X#").pattern("###").group("stained_asphalt").unlockedBy("has_asphalt", has(RSTags.Items.ASPHALT)).save(consumer);
+        ShapedRecipeBuilder.shaped(RSBlockRegistry.BLUE_ASPHALT.get(), 8).define('#',RSBlockRegistry.ASPHALT.get()).define('X', Items.BLUE_DYE).pattern("###").pattern("#X#").pattern("###").group("stained_asphalt").unlockedBy("has_asphalt", has(RSTags.Items.ASPHALT)).save(consumer);
+        ShapedRecipeBuilder.shaped(RSBlockRegistry.YELLOW_ASPHALT.get(), 8).define('#',RSBlockRegistry.ASPHALT.get()).define('X', Items.YELLOW_DYE).pattern("###").pattern("#X#").pattern("###").group("stained_asphalt").unlockedBy("has_asphalt", has(RSTags.Items.ASPHALT)).save(consumer);
+
 
         ShapedRecipeBuilder.shaped(RSBlockRegistry.ASPHALT.get(), 4).define('G', Tags.Items.GRAVEL).define('B', RSTags.ForgeItems.BITUMEN).define('S', Tags.Items.SAND).pattern("SB").pattern("BG").unlockedBy("has_raw_bitumen", has(RSTags.ForgeItems.BITUMEN)).group("asphalt").save(consumer, RoadStuff.MODID + ":asphalt1");
         ShapedRecipeBuilder.shaped(RSBlockRegistry.ASPHALT.get(), 4).define('G', Tags.Items.GRAVEL).define('B', RSTags.ForgeItems.BITUMEN).define('S', Tags.Items.SAND).pattern("BS").pattern("GB").unlockedBy("has_raw_bitumen", has(RSTags.ForgeItems.BITUMEN)).group("asphalt").save(consumer, RoadStuff.MODID + ":asphalt2");

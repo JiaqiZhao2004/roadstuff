@@ -1,9 +1,9 @@
 package tv.mapper.roadstuff.data;
 
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -21,7 +21,9 @@ public class RSTags
 
         private static TagKey<Block> tag(String name)
         {
-            return BlockTags.create(new ResourceLocation(RoadStuff.MODID, name));
+            return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(RoadStuff.MODID,name));
+
+          //  return BlockTags.bind(new ResourceLocation(RoadStuff.MODID, name).toString());
         }
     }
 
@@ -35,7 +37,9 @@ public class RSTags
 
         private static TagKey<Item> tag(String name)
         {
-            return ItemTags.create(new ResourceLocation(RoadStuff.MODID, name));
+            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(RoadStuff.MODID,name));
+
+       //     return ItemTags.bind(new ResourceLocation(RoadStuff.MODID, name).toString());
         }
     }
 
@@ -46,7 +50,9 @@ public class RSTags
 
         private static TagKey<Block> tag(String name)
         {
-            return BlockTags.create(new ResourceLocation("forge", name));
+            return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("forge",name));
+
+           // return BlockTags.bind(new ResourceLocation("forge", name).toString());
         }
     }
 
@@ -59,7 +65,9 @@ public class RSTags
 
         private static TagKey<Item> tag(String name)
         {
-            return ItemTags.create(new ResourceLocation("forge", name));
+            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge",name));
+
+         //   return ItemTags.bind(new ResourceLocation("forge", name).toString());
         }
     }
 }

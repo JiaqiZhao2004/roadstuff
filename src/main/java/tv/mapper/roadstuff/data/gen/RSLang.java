@@ -10,28 +10,25 @@ import net.minecraftforge.common.data.LanguageProvider;
 import tv.mapper.roadstuff.world.item.RSItemRegistry;
 import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
 
-public class RSLang extends LanguageProvider
-{
+public class RSLang extends LanguageProvider {
     private String lang;
 
-    public RSLang(DataGenerator generator, String modid, String lang)
-    {
+    public RSLang(DataGenerator generator, String modid, String lang) {
         super(generator, modid, lang);
         this.lang = lang;
     }
 
     @Override
-    protected void addTranslations()
-    {
+    protected void addTranslations() {
         // String frColorsF[] = {"blanche", "orange", "magenta", "bleu claire", "jaune", "vert claire", "rose", "grise", "gris claire", "cyan", "violette", "bleue", "marron", "verte", "rouge",
         // "noire"};
         String frColorsM[] = {"blanc", "orange", "magenta", "bleu clair", "jaune", "vert clair", "rose", "gris", "gris clair", "cyan", "violet", "bleu", "marron", "vert", "rouge", "noir"};
 
-        switch(lang)
-        {
+        switch (lang) {
             default:
             case "en_us":
                 add(RSBlockRegistry.ASPHALT_SLOPE.get(), "Asphalt Slope");
+
                 add(RSBlockRegistry.CONCRETE_SLOPE.get(), "Concrete Slope");
 
                 add(RSBlockRegistry.CONCRETE.get(), "Concrete");
@@ -43,6 +40,19 @@ public class RSLang extends LanguageProvider
                 add(RSBlockRegistry.CONCRETE_FENCE_GATE.get(), "Concrete Fence Gate");
 
                 add(RSBlockRegistry.ASPHALT.get(), "Asphalt");
+
+                add(RSBlockRegistry.RED_ASPHALT.get(), "Red Asphalt");
+                add(RSBlockRegistry.RED_ASPHALT_SLOPE.get(), "Red Asphalt Slope");
+
+                add(RSBlockRegistry.GREEN_ASPHALT.get(), "Green Asphalt");
+                add(RSBlockRegistry.GREEN_ASPHALT_SLOPE.get(), "Green Asphalt Slope");
+
+                add(RSBlockRegistry.BLUE_ASPHALT.get(), "Blue Asphalt");
+                add(RSBlockRegistry.BLUE_ASPHALT_SLOPE.get(), "Blue Asphalt Slope");
+
+                add(RSBlockRegistry.YELLOW_ASPHALT.get(), "Yellow Asphalt");
+                add(RSBlockRegistry.YELLOW_ASPHALT_SLOPE.get(), "Yellow Asphalt Slope");
+
                 add(RSBlockRegistry.ASPHALT_SLAB.get(), "Asphalt Slab");
                 add(RSBlockRegistry.ASPHALT_STAIRS.get(), "Asphalt Stairs");
                 add(RSBlockRegistry.ASPHALT_PRESSURE_PLATE.get(), "Asphalt Pressure Plate");
@@ -52,14 +62,12 @@ public class RSLang extends LanguageProvider
                 add(RSBlockRegistry.BITUMEN_BLOCK.get(), "Block of Bitumen");
                 add(RSItemRegistry.BITUMINOUS_COAL.get(), "Bituminous Coal");
 
-                for(int i = 0; i < Arrays.stream(DyeColor.values()).count(); i++)
-                {
+                for (int i = 0; i < Arrays.stream(DyeColor.values()).count(); i++) {
                     String color = DyeColor.byId(i).getSerializedName();
                     String check[] = color.split("_");
-                    if(check.length > 1)
+                    if (check.length > 1)
                         color = StringUtils.capitalise(check[0]) + " " + StringUtils.capitalise(check[1]);
-                    else
-                        color = StringUtils.capitalise(check[0]);
+                    else color = StringUtils.capitalise(check[0]);
 
                     add(RSBlockRegistry.TRAFFIC_CONE_BLOCKS.get(DyeColor.byId(i)).get(), color + " Traffic Cone");
                     add(RSBlockRegistry.TRAFFIC_BARREL_BLOCKS.get(DyeColor.byId(i)).get(), color + " Traffic Barrel");
@@ -91,6 +99,7 @@ public class RSLang extends LanguageProvider
                 add("roadstuff.message.bucket.empty", "This bucket is empty!");
                 add("roadstuff.message.bucket.yellow", "This bucket is already filled with yellow paint!");
                 add("roadstuff.message.bucket.white", "This bucket is already filled with white paint!");
+                add("roadstuff.message.bucket.black", "This bucket is already filled with black paint!");
                 add("roadstuff.message.bucket.full", "This bucket is full!");
                 add("roadstuff.message.bucket.underwater", "You can't interact with a bucket under water!");
 
@@ -104,6 +113,7 @@ public class RSLang extends LanguageProvider
 
                 add("roadstuff.message.paint.color.white", "White");
                 add("roadstuff.message.paint.color.yellow", "Yellow");
+                add("roadstuff.message.paint.color.black", "Black");
 
                 add("itemGroup.roadstuff_group", "Road Stuff");
                 break;
@@ -130,14 +140,12 @@ public class RSLang extends LanguageProvider
                 add(RSBlockRegistry.BITUMEN_BLOCK.get(), "Bloc de bitume");
                 add(RSItemRegistry.BITUMINOUS_COAL.get(), "Charbon bitumineux");
 
-                for(int i = 0; i < Arrays.stream(DyeColor.values()).count(); i++)
-                {
+                for (int i = 0; i < Arrays.stream(DyeColor.values()).count(); i++) {
                     String color = DyeColor.byId(i).getSerializedName();
                     String check[] = color.split("_");
-                    if(check.length > 1)
+                    if (check.length > 1)
                         color = StringUtils.capitalise(check[0]) + " " + StringUtils.capitalise(check[1]);
-                    else
-                        color = StringUtils.capitalise(check[0]);
+                    else color = StringUtils.capitalise(check[0]);
 
                     add(RSBlockRegistry.TRAFFIC_CONE_BLOCKS.get(DyeColor.byId(i)).get(), "Cône routier " + frColorsM[i]);
                     add(RSBlockRegistry.TRAFFIC_BARREL_BLOCKS.get(DyeColor.byId(i)).get(), "Barril routier " + frColorsM[i]);

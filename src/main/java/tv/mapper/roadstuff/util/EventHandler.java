@@ -23,12 +23,12 @@ public class EventHandler
         if(event.getFace() == Direction.UP && !ModConstants.ALTERNATE_BRUSH)
         {
             BlockPos pos = event.getPos();
-            Level world = event.getWorld();
+            Level world = event.getLevel();
             BlockState state = world.getBlockState(pos);
 
             if(state.getBlock() instanceof PaintSystem)
             {
-                Player player = event.getPlayer();
+                Player player = event.getEntity();
                 ItemStack heldItem = ItemStack.EMPTY;
 
                 long timer = System.currentTimeMillis();

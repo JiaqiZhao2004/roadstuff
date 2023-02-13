@@ -20,8 +20,7 @@ import tv.mapper.mapperbase.world.item.FuelItem;
 import tv.mapper.roadstuff.RoadStuff;
 import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
 
-public class RSItemRegistry
-{
+public class RSItemRegistry {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RoadStuff.MODID);
 
     public static Set<RegistryObject<Item>> MOD_PAINTBRUSHES = new LinkedHashSet<>();
@@ -42,6 +41,17 @@ public class RSItemRegistry
     public static final RegistryObject<BlockItem> ASPHALT_SLOPE_ITEM = ITEMS.register("asphalt_slope", () -> new BlockItem(RSBlockRegistry.ASPHALT_SLOPE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
     public static final RegistryObject<BlockItem> CONCRETE_SLOPE_ITEM = ITEMS.register("concrete_slope", () -> new BlockItem(RSBlockRegistry.CONCRETE_SLOPE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
 
+    public static final RegistryObject<Item> RED_ASPHALT_ITEM = ITEMS.register("red_asphalt", () -> new BlockItem(RSBlockRegistry.RED_ASPHALT.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+    public static final RegistryObject<BlockItem> RED_ASPHALT_SLOPE_ITEM = ITEMS.register("red_asphalt_slope", () -> new BlockItem(RSBlockRegistry.RED_ASPHALT_SLOPE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+
+    public static final RegistryObject<Item> GREEN_ASPHALT_ITEM = ITEMS.register("green_asphalt", () -> new BlockItem(RSBlockRegistry.GREEN_ASPHALT.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+    public static final RegistryObject<BlockItem> GREEN_ASPHALT_SLOPE_ITEM = ITEMS.register("green_asphalt_slope", () -> new BlockItem(RSBlockRegistry.GREEN_ASPHALT_SLOPE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+
+    public static final RegistryObject<Item> BLUE_ASPHALT_ITEM = ITEMS.register("blue_asphalt", () -> new BlockItem(RSBlockRegistry.BLUE_ASPHALT.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+    public static final RegistryObject<BlockItem> BLUE_ASPHALT_SLOPE_ITEM = ITEMS.register("blue_asphalt_slope", () -> new BlockItem(RSBlockRegistry.BLUE_ASPHALT_SLOPE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+
+    public static final RegistryObject<Item> YELLOW_ASPHALT_ITEM = ITEMS.register("yellow_asphalt", () -> new BlockItem(RSBlockRegistry.YELLOW_ASPHALT.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
+    public static final RegistryObject<BlockItem> YELLOW_ASPHALT_SLOPE_ITEM = ITEMS.register("yellow_asphalt_slope", () -> new BlockItem(RSBlockRegistry.YELLOW_ASPHALT_SLOPE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
     public static final RegistryObject<Item> RAW_BITUMEN = ITEMS.register("raw_bitumen", () -> new Item(new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
     public static final RegistryObject<Item> BITUMEN_ORE_ITEM = ITEMS.register("bitumen_ore", () -> new BlockItem(RSBlockRegistry.BITUMEN_ORE.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
     public static final RegistryObject<Item> BITUMEN_ITEM = ITEMS.register("bitumen_block", () -> new BlockItem(RSBlockRegistry.BITUMEN_BLOCK.get(), new Item.Properties().tab(ModItemGroups.ROADSTUFF)));
@@ -85,8 +95,7 @@ public class RSItemRegistry
     public static final RegistryObject<Item> DIAMOND_PAINT_BRUSH = ITEMS.register("diamond_paint_brush", () -> new BrushItem(new Item.Properties().tab(ModItemGroups.ROADSTUFF).stacksTo(1), 512));
     public static final RegistryObject<Item> NETHERITE_PAINT_BRUSH = ITEMS.register("netherite_paint_brush", () -> new BrushItem(new Item.Properties().tab(ModItemGroups.ROADSTUFF).stacksTo(1), 1024));
 
-    static
-    {
+    static {
         MOD_PAINTBRUSHES.add(WOODEN_PAINT_BRUSH);
         MOD_PAINTBRUSHES.add(STONE_PAINT_BRUSH);
         MOD_PAINTBRUSHES.add(IRON_PAINT_BRUSH);
@@ -96,8 +105,7 @@ public class RSItemRegistry
         MOD_PAINTBRUSHES.add(NETHERITE_PAINT_BRUSH);
     }
 
-    public static void init()
-    {
+    public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

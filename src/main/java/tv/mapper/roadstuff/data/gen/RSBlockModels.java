@@ -8,23 +8,20 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import tv.mapper.mapperbase.data.gen.BaseBlockModels;
 import tv.mapper.roadstuff.util.ModConstants;
+import tv.mapper.roadstuff.world.level.block.state.properties.EnumPaintColor;
 
-public class RSBlockModels extends BaseBlockModels
-{
-    public RSBlockModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper)
-    {
+public class RSBlockModels extends BaseBlockModels {
+    public RSBlockModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
         super(generator, modid, existingFileHelper);
     }
 
     @Override
-    public String getName()
-    {
+    public String getName() {
         return "RoadStuff Block Models";
     }
 
     @Override
-    protected void registerModels()
-    {
+    protected void registerModels() {
         buildWall("concrete", modLoc("block/concrete"));
         getBuilder("concrete_pressure_plate").parent(getExistingFile(mcLoc("block/pressure_plate_up"))).texture("texture", modLoc("block/concrete"));
         getBuilder("concrete_pressure_plate_down").parent(getExistingFile(mcLoc("block/pressure_plate_down"))).texture("texture", modLoc("block/concrete"));
@@ -33,26 +30,37 @@ public class RSBlockModels extends BaseBlockModels
         getBuilder("asphalt_pressure_plate").parent(getExistingFile(mcLoc("block/pressure_plate_up"))).texture("texture", modLoc("block/asphalt"));
         getBuilder("asphalt_pressure_plate_down").parent(getExistingFile(mcLoc("block/pressure_plate_down"))).texture("texture", modLoc("block/asphalt"));
 
-        for(int i = 1; i < 8; i++)
-        {
+        for (int i = 1; i < 8; i++) {
+            getBuilder("red_asphalt_slope_" + i * 2).parent(getExistingFile(new ResourceLocation("mapperbase", "block/slope_" + i * 2))).texture("base", modLoc("block/red_asphalt")).texture("particle", modLoc("block/red_asphalt"));
+            getBuilder("green_asphalt_slope_" + i * 2).parent(getExistingFile(new ResourceLocation("mapperbase", "block/slope_" + i * 2))).texture("base", modLoc("block/green_asphalt")).texture("particle", modLoc("block/green_asphalt"));
+            getBuilder("blue_asphalt_slope_" + i * 2).parent(getExistingFile(new ResourceLocation("mapperbase", "block/slope_" + i * 2))).texture("base", modLoc("block/blue_asphalt")).texture("particle", modLoc("block/blue_asphalt"));
+            getBuilder("yellow_asphalt_slope_" + i * 2).parent(getExistingFile(new ResourceLocation("mapperbase", "block/slope_" + i * 2))).texture("base", modLoc("block/yellow_asphalt")).texture("particle", modLoc("block/yellow_asphalt"));
+
             getBuilder("asphalt_slope_" + i * 2).parent(getExistingFile(new ResourceLocation("mapperbase", "block/slope_" + i * 2))).texture("base", modLoc("block/asphalt")).texture("particle", modLoc("block/asphalt"));
             getBuilder("concrete_slope_" + i * 2).parent(getExistingFile(new ResourceLocation("mapperbase", "block/slope_" + i * 2))).texture("base", modLoc("block/concrete")).texture("particle", modLoc("block/concrete"));
 
-            for(int j = 1; j < ModConstants.PATTERNS; j++)
-            {
+            for (int j = 1; j < ModConstants.PATTERNS; j++) {
+                getBuilder("red_asphalt_slope_" + i * 2 + "_line_" + j).parent(getExistingFile(modLoc("block/painted_slope_" + i * 2))).texture("base", modLoc("block/red_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/red_asphalt"));
+                getBuilder("green_asphalt_slope_" + i * 2 + "_line_" + j).parent(getExistingFile(modLoc("block/painted_slope_" + i * 2))).texture("base", modLoc("block/green_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/green_asphalt"));
+                getBuilder("blue_asphalt_slope_" + i * 2 + "_line_" + j).parent(getExistingFile(modLoc("block/painted_slope_" + i * 2))).texture("base", modLoc("block/blue_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/blue_asphalt"));
+                getBuilder("yellow_asphalt_slope_" + i * 2 + "_line_" + j).parent(getExistingFile(modLoc("block/painted_slope_" + i * 2))).texture("base", modLoc("block/yellow_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/yellow_asphalt"));
+
                 getBuilder("asphalt_slope_" + i * 2 + "_line_" + j).parent(getExistingFile(modLoc("block/painted_slope_" + i * 2))).texture("base", modLoc("block/asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/asphalt"));
                 getBuilder("concrete_slope_" + i * 2 + "_line_" + j).parent(getExistingFile(modLoc("block/painted_slope_" + i * 2))).texture("base", modLoc("block/concrete")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/concrete"));
             }
         }
 
-        for(int j = 1; j < ModConstants.PATTERNS; j++)
-        {
+        for (int j = 1; j < ModConstants.PATTERNS; j++) {
+            getBuilder("red_asphalt_line_" + j).parent(getExistingFile(modLoc("block/cube_line"))).texture("base", modLoc("block/red_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/red_asphalt"));
+            getBuilder("green_asphalt_line_" + j).parent(getExistingFile(modLoc("block/cube_line"))).texture("base", modLoc("block/green_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/green_asphalt"));
+            getBuilder("blue_asphalt_line_" + j).parent(getExistingFile(modLoc("block/cube_line"))).texture("base", modLoc("block/blue_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/blue_asphalt"));
+            getBuilder("yellow_asphalt_line_" + j).parent(getExistingFile(modLoc("block/cube_line"))).texture("base", modLoc("block/yellow_asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/yellow_asphalt"));
+
             getBuilder("asphalt_line_" + j).parent(getExistingFile(modLoc("block/cube_line"))).texture("base", modLoc("block/asphalt")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/asphalt"));
             getBuilder("concrete_line_" + j).parent(getExistingFile(modLoc("block/cube_line"))).texture("base", modLoc("block/concrete")).texture("overlay", modLoc("block/" + j)).texture("particle", modLoc("block/concrete"));
         }
 
-        for(int i = 0; i < Arrays.stream(DyeColor.values()).count(); i++)
-        {
+        for (int i = 0; i < Arrays.stream(DyeColor.values()).count(); i++) {
             getBuilder(DyeColor.byId(i).getSerializedName() + "_traffic_cone").parent(getExistingFile(modLoc("block/traffic_cone"))).texture("bottom", modLoc("block/cone_bottom")).texture("side", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_side")).texture("top", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_top")).texture("particle", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_side"));
             getBuilder(DyeColor.byId(i).getSerializedName() + "_traffic_bollard").parent(getExistingFile(modLoc("block/traffic_bollard"))).texture("bottom", modLoc("block/cone_bottom")).texture("side", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_side")).texture("top", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_top")).texture("particle", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_side"));
             getBuilder(DyeColor.byId(i).getSerializedName() + "_traffic_barrel").parent(getExistingFile(modLoc("block/traffic_barrel"))).texture("bottom", modLoc("block/cone_bottom")).texture("side", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_side")).texture("top", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_top")).texture("particle", modLoc("block/" + DyeColor.byId(i).getSerializedName() + "_cone_side"));
@@ -76,10 +84,12 @@ public class RSBlockModels extends BaseBlockModels
         getBuilder("yellow_small_bollard").parent(getExistingFile(modLoc("block/small_eur_bollard"))).texture("all", modLoc("block/yellow_bollard"));
         getBuilder("red_small_bollard").parent(getExistingFile(modLoc("block/small_eur_bollard"))).texture("all", modLoc("block/red_bollard"));
 
-        for(int i = 1; i < 9; i++)
-        {
-            getBuilder("paint_bucket_white_" + i).parent(getExistingFile(modLoc("block/paint_bucket_" + i))).texture("all", modLoc("block/paint_bucket_white")).texture("particle", modLoc("block/paint_bucket_white"));
-            getBuilder("paint_bucket_yellow_" + i).parent(getExistingFile(modLoc("block/paint_bucket_" + i))).texture("all", modLoc("block/paint_bucket_yellow")).texture("particle", modLoc("block/paint_bucket_yellow"));
+        for (EnumPaintColor paintColor : EnumPaintColor.values()) {
+            for (int i = 1; i < 9; i++) {
+                String color = paintColor.getSerializedName();
+                getBuilder("paint_bucket_" + color + "_" + i).parent(getExistingFile(modLoc("block/paint_bucket_" + i))).texture("all", modLoc("block/paint_bucket_" + color)).texture("particle", modLoc("block/paint_bucket_" + color));
+                //    getBuilder("paint_bucket_yellow_" + i).parent(getExistingFile(modLoc("block/paint_bucket_" + i))).texture("all", modLoc("block/paint_bucket_yellow")).texture("particle", modLoc("block/paint_bucket_yellow"));
+            }
         }
     }
 }

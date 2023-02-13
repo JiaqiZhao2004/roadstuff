@@ -12,8 +12,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import tv.mapper.roadstuff.RoadStuff;
@@ -24,7 +24,7 @@ import tv.mapper.roadstuff.world.level.block.state.properties.EnumPaintColor;
 
 public class GuiBrush extends Screen
 {
-    public static final Component title = new TextComponent("Paintbrush");
+    public static final Component title = Component.literal("Paintbrush");
 
     private static final int WIDTH = 217;
     private static final int HEIGHT = 205;
@@ -50,13 +50,13 @@ public class GuiBrush extends Screen
     int favX;
     int favY;
 
-    private TranslatableComponent textTitle = new TranslatableComponent("roadstuff.gui.paintbrush.title");
-    private TranslatableComponent textEraser = new TranslatableComponent("roadstuff.message.brush.gui.eraser");
-    private TranslatableComponent textPattern = new TranslatableComponent("roadstuff.message.brush.gui.pattern");
-    private TranslatableComponent textPaint = new TranslatableComponent("roadstuff.message.brush.gui.paint");
-    private TranslatableComponent textColor = new TranslatableComponent("roadstuff.message.brush.gui.color");
-    private TranslatableComponent textFav1 = new TranslatableComponent("roadstuff.message.brush.gui.fav1");
-    private TranslatableComponent textFav2 = new TranslatableComponent("roadstuff.message.brush.gui.fav2");
+    private MutableComponent textTitle =Component.translatable("roadstuff.gui.paintbrush.title");
+    private MutableComponent textEraser = Component.translatable("roadstuff.message.brush.gui.eraser");
+    private MutableComponent textPattern = Component.translatable("roadstuff.message.brush.gui.pattern");
+    private MutableComponent textPaint = Component.translatable("roadstuff.message.brush.gui.paint");
+    private MutableComponent textColor = Component.translatable("roadstuff.message.brush.gui.color");
+    private MutableComponent textFav1 = Component.translatable("roadstuff.message.brush.gui.fav1");
+    private MutableComponent textFav2 = Component.translatable("roadstuff.message.brush.gui.fav2");
 
     private static final ResourceLocation brush_gui = new ResourceLocation(RoadStuff.MODID, "textures/gui/brush.png");
 
@@ -190,7 +190,7 @@ public class GuiBrush extends Screen
                 renderTooltip(stack, textEraser, mouseX, mouseY);
             else
             {
-                TranslatableComponent textPatternDisplay = new TranslatableComponent(textPattern.getString() + patternHover);
+                MutableComponent textPatternDisplay = Component.translatable(textPattern.getString() + patternHover);
                 renderTooltip(stack, textPatternDisplay, mouseX, mouseY);
             }
         }
@@ -205,14 +205,14 @@ public class GuiBrush extends Screen
 
             if(favorites[patternHover] == 0)
             {
-                patternTooltip = new TranslatableComponent(textFav1.getString());
-                patternTooltip2 = new TranslatableComponent(textFav2.getString());
+                patternTooltip = Component.translatable(textFav1.getString());
+                patternTooltip2 = Component.translatable(textFav2.getString());
                 patternTooltipFinal.add(patternTooltip);
                 patternTooltipFinal.add(patternTooltip2);
             }
             else
             {
-                patternTooltip = new TranslatableComponent(textPattern.getString() + favorites[patternHover]);
+                patternTooltip = Component.translatable(textPattern.getString() + favorites[patternHover]);
                 patternTooltipFinal.add(patternTooltip);
             }
 

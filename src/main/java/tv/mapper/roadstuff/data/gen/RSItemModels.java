@@ -27,6 +27,18 @@ public class RSItemModels extends BaseItemModels
         registerBlockBasics("asphalt", true, true, true, false, true, false);
         registerBlockBasics("concrete", true, true, true, true, true, true);
 
+        registerBlockBasics("red_asphalt", true, false, false, false, false, false);
+        getBuilder("red_asphalt_slope").parent(new UncheckedModelFile(modid + ":block/red_asphalt_slope_2"));
+
+        registerBlockBasics("green_asphalt", true, false, false, false, false, false);
+        getBuilder("green_asphalt_slope").parent(new UncheckedModelFile(modid + ":block/green_asphalt_slope_2"));
+
+        registerBlockBasics("blue_asphalt", true, false, false, false, false, false);
+        getBuilder("blue_asphalt_slope").parent(new UncheckedModelFile(modid + ":block/blue_asphalt_slope_2"));
+
+        registerBlockBasics("yellow_asphalt", true, false, false, false, false, false);
+        getBuilder("yellow_asphalt_slope").parent(new UncheckedModelFile(modid + ":block/yellow_asphalt_slope_2"));
+
         getBuilder("asphalt_slope").parent(new UncheckedModelFile(modid + ":block/asphalt_slope_2"));
         getBuilder("concrete_slope").parent(new UncheckedModelFile(modid + ":block/concrete_slope_2"));
 

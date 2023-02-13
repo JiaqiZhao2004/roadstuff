@@ -6,6 +6,7 @@
     "overrides": [
         {"predicate": {"color": 0.0 }, "model": "roadstuff:item/stone_paint_brush" },
         {"predicate": {"color": 0.5 }, "model": "roadstuff:item/stone_paint_brush_white" },
-        {"predicate": {"color": 1.0 }, "model": "roadstuff:item/stone_paint_brush_yellow" }
+        {"predicate": {"color": 1.0 }, "model": "roadstuff:item/stone_paint_brush_yellow" },
+        {"predicate": {"color": 1.5 }, "model": "roadstuff:item/stone_paint_brush_black" }
     ]
 }

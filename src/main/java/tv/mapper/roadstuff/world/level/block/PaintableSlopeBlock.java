@@ -1,27 +1,46 @@
 package tv.mapper.roadstuff.world.level.block;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import tv.mapper.mapperbase.world.level.block.SlopeBlock;
-import tv.mapper.mapperbase.world.level.block.ToolTiers;
 import tv.mapper.mapperbase.world.level.block.ToolTypes;
 
-public class PaintableSlopeBlock extends SlopeBlock implements PaintSystem
-{
-    protected int materialType = 0;
+import static tv.mapper.roadstuff.util.BlockHelper.getUnpaintedBlock;
 
-    public PaintableSlopeBlock(Properties properties, ToolTypes tool, int materialType)
-    {
+
+public class PaintableSlopeBlock extends SlopeBlock implements PaintSystem {
+
+    public PaintableSlopeBlock(Properties properties, ToolTypes tool) {
         super(properties, tool);
-        this.materialType = materialType;
+
+        this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1).setValue(DIRECTION, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
 
-    public PaintableSlopeBlock(Properties properties, ToolTypes tool, ToolTiers tier, int materialType)
-    {
-        super(properties, tool, tier);
-        this.materialType = materialType;
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(LAYERS, DIRECTION, WATERLOGGED);
     }
 
-    public int getMaterialType()
-    {
-        return this.materialType;
+    @Override
+    public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
+        return new ItemStack(getUnpaintedBlock(state));
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(DIRECTION, pRotation.rotate(pState.getValue(DIRECTION)));
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.rotate(pMirror.getRotation(pState.getValue(DIRECTION)));
     }
 }

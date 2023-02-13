@@ -3,25 +3,30 @@ package tv.mapper.roadstuff.util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.RegistryObject;
-import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
+import tv.mapper.roadstuff.world.level.block.state.properties.EnumPaintColor;
 
-public class ModColorHandler
-{
-    public static void registerBlockColor()
-    {
+import static tv.mapper.roadstuff.world.level.block.RSBlockRegistry.nameToPaintableBlockMap;
+
+public class ModColorHandler {
+    public static void registerBlockColor() {
         final BlockColors blockColors = Minecraft.getInstance().getBlockColors();
 
-        final BlockColor yellowColor = (state, blockAccess, pos, tintIndex) ->
-        {
-            return ModConstants.YELLOW_COLOR;
-        };
+        for (String key : nameToPaintableBlockMap.keySet()) {
+            if (!key.matches(".*[0-9]$")) continue;
+            Block block = nameToPaintableBlockMap.get(key).get();
 
-        for(RegistryObject<Block> block : RSBlockRegistry.MOD_PAINTABLEBLOCKS)
-        {
-            if(block.get().getRegistryName().toString().contains("yellow_line"))
-                blockColors.register(yellowColor, block.get());
+            for (EnumPaintColor paintColor : EnumPaintColor.values()) {
+                if (paintColor == EnumPaintColor.WHITE) continue;
+                String color = paintColor.getSerializedName();
+                if (block.getDescriptionId().contains(color + "_line")) {
+                    final BlockColor blockColor = (state, blockAccess, pos, tintIndex) ->
+                            DyeColor.valueOf(paintColor.getSerializedName().toUpperCase()).getFireworkColor();
+
+                    blockColors.register(blockColor, block);
+                }
+            }
         }
     }
 }

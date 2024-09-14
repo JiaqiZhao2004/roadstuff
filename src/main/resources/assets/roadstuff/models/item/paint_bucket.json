@@ -4,5 +4,6 @@
         {"predicate": {"color": 0.0 }, "model": "roadstuff:item/paint_bucket" },
         {"predicate": {"color": 0.5 }, "model": "roadstuff:item/paint_bucket_white" },
         {"predicate": {"color": 1.0 }, "model": "roadstuff:item/paint_bucket_yellow" }
-    ]
+    ],
+    "render_type": "cutout"
 }

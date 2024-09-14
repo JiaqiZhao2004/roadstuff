@@ -13,5 +13,6 @@
 				"up": {"uv": [0, 0, 4, 4], "texture": "#texture"}
 			}
 		}
-	]
+	],
+	"render_type": "cutout"
 }

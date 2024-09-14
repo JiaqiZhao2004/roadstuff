@@ -37,5 +37,6 @@
 				"down": {"uv": [0, 15, 3, 16], "texture": "#all"}
 			}
 		}
-	]
+	],
+	"render_type": "cutout"
 }

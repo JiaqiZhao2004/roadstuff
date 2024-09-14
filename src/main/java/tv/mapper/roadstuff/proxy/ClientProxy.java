@@ -23,15 +23,6 @@ public class ClientProxy implements IProxy {
     public void setup(FMLCommonSetupEvent event) {
         ModColorHandler.registerBlockColor();
 
-        Predicate<RenderType> cutoutPredicate = renderType -> renderType == RenderType.cutout();
-
-        for (String key : nameToPaintableBlockMap.keySet()) {
-            Block block = nameToPaintableBlockMap.get(key).get();
-            ItemBlockRenderTypes.setRenderLayer(block, cutoutPredicate);
-        }
-
-        ItemBlockRenderTypes.setRenderLayer(RSBlockRegistry.PAINT_BUCKET.get(), cutoutPredicate);
-
         ItemProperties.register(RSItemRegistry.PAINT_BUCKET_ITEM.get(), new ResourceLocation("color"), (itemStack, world, entity, id) ->
         {
             if (itemStack.hasTag()) {

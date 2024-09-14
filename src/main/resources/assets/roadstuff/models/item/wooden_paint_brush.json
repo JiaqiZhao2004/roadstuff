@@ -8,5 +8,6 @@
         {"predicate": {"color": 0.5 }, "model": "roadstuff:item/wooden_paint_brush_white" },
         {"predicate": {"color": 1.0 }, "model": "roadstuff:item/wooden_paint_brush_yellow" },
         {"predicate": {"color": 1.5 }, "model": "roadstuff:item/wooden_paint_brush_black" }
-    ]
+    ],
+    "render_type": "cutout"
 }

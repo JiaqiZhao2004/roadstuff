@@ -20,5 +20,6 @@
                 "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0, "cullface": "up" }
             }
         }
-    ]
+    ],
+    "render_type": "cutout"
 }

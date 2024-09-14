@@ -32,5 +32,6 @@
 				"west": {"uv": [0, 2, 7, 7], "texture": "#all"}
 			}
 		}
-	]
+	],
+	"render_type": "cutout"
 }

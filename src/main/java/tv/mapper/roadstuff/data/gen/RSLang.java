@@ -14,7 +14,7 @@ public class RSLang extends LanguageProvider {
     private String lang;
 
     public RSLang(DataGenerator generator, String modid, String lang) {
-        super(generator, modid, lang);
+        super(generator.getPackOutput(), modid, lang);
         this.lang = lang;
     }
 

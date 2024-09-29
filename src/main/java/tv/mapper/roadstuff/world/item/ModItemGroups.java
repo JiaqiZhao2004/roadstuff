@@ -9,7 +9,6 @@ public class ModItemGroups
 {
     public static final CreativeModeTab ROADSTUFF = new CreativeModeTab("roadstuff_group")
     {
-        @Override
         public ItemStack makeIcon()
         {
             return new ItemStack(RSBlockRegistry.TRAFFIC_CONE_BLOCKS.get(DyeColor.ORANGE).get());

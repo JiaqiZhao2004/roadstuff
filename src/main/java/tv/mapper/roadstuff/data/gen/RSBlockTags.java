@@ -8,6 +8,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import tv.mapper.mapperbase.data.BaseTags;
 import tv.mapper.mapperbase.data.gen.BaseBlockTags;
 import tv.mapper.roadstuff.data.RSTags;
@@ -17,9 +18,9 @@ import static tv.mapper.roadstuff.world.level.block.RSBlockRegistry.nameToPainta
 
 public class RSBlockTags extends BaseBlockTags
 {
-    public RSBlockTags(DataGenerator generatorIn, String modid, ExistingFileHelper existingFileHelper)
+    public RSBlockTags(GatherDataEvent event, String modid, ExistingFileHelper existingFileHelper)
     {
-        super(generatorIn, modid, existingFileHelper);
+        super(event, modid, existingFileHelper);
     }
 
     public void addTags()

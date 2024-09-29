@@ -23,7 +23,7 @@ public class RSGenerators
         generator.addProvider(true,new RSBlockModels(generator, modid, existingFileHelper));
         generator.addProvider(true,new RSItemModels(generator, modid, existingFileHelper));
 
-        RSBlockTags rsBlockTags = new RSBlockTags(generator, modid, existingFileHelper);
+        RSBlockTags rsBlockTags = new RSBlockTags(event, modid, existingFileHelper);
 
         generator.addProvider(true,rsBlockTags);
         generator.addProvider(true,new RSItemTags(generator, rsBlockTags, existingFileHelper));

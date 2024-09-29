@@ -1,6 +1,7 @@
 package tv.mapper.roadstuff.world;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class RSPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
-            DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY,"roadstuff");
+            DeferredRegister.create(Registries.PLACED_FEATURE,"roadstuff");
 
 
     public static final RegistryObject<PlacedFeature> BITUMEN_ORE_PLACED = PLACED_FEATURES.register("bitumen",

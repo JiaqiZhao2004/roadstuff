@@ -2,7 +2,7 @@ package tv.mapper.roadstuff.world;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RSConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
-            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, "roadstuff");
+            DeferredRegister.create(Registries.CONFIGURED_FEATURE, "roadstuff");
 
     public static final Supplier<List<OreConfiguration.TargetBlockState>> BITUMEN_ORES = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, RSBlockRegistry.BITUMEN_ORE.get().defaultBlockState()),

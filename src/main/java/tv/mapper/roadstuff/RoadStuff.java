@@ -1,6 +1,5 @@
 package tv.mapper.roadstuff;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -19,8 +18,6 @@ import tv.mapper.roadstuff.network.RSNetwork;
 import tv.mapper.roadstuff.proxy.ClientProxy;
 import tv.mapper.roadstuff.proxy.IProxy;
 import tv.mapper.roadstuff.proxy.ServerProxy;
-//import tv.mapper.roadstuff.world.RSConfiguredFeatures;
-//import tv.mapper.roadstuff.world.RSPlacedFeatures;
 import tv.mapper.roadstuff.world.item.ModCreativeModeTabs;
 import tv.mapper.roadstuff.world.item.RSItemRegistry;
 import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
@@ -41,15 +38,6 @@ public class RoadStuff {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModCreativeModeTabs.register(modEventBus);
 
-//        if (!Settings.BITUMEN_GENERATION.get())
-//            LOGGER.info("Road Stuff worldgen is disabled by config.");
-//        else {
-
-//            RSConfiguredFeatures.register(modEventBus);
-//            RSPlacedFeatures.register(modEventBus);
-//              ConfigChecker.checkConfig(Settings.BITUMEN_BIOME_LIST.get(), MODID);
-//        }
-
         RSBlockRegistry.init();
         RSItemRegistry.init();
 
@@ -57,8 +45,6 @@ public class RoadStuff {
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::serverSetup);
 
-//        modEventBus.register(new RSOreGenerator());
-//        modEventBus.register(new BaseTiers());
         modEventBus.register(this);
         modEventBus.addListener(this::addCreative);
     }

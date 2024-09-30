@@ -19,6 +19,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import tv.mapper.mapperbase.world.level.block.CustomBlock;
 import tv.mapper.mapperbase.world.level.block.ToolTiers;
 import tv.mapper.mapperbase.world.level.block.ToolTypes;
@@ -60,46 +61,36 @@ public class ConeBlock extends CustomBlock implements SimpleWaterloggedBlock
     {
         super(properties, tool);
         this.type = type;
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)));
+        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.FALSE));
     }
 
     public ConeBlock(Properties properties, ToolTypes tool, ToolTiers tier, EnumConeType type)
     {
         super(properties, tool, tier);
         this.type = type;
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)));
+        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.FALSE));
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context)
     {
-        switch(type)
-        {
-            case CONE:
-                return CONE;
-            case BARREL:
-                return BARREL;
-            case BOLLARD:
-                return BOLLARD;
-            default:
-                return CONE;
-        }
+        return switch (type) {
+            case CONE -> CONE;
+            case BARREL -> BARREL;
+            case BOLLARD -> BOLLARD;
+            default -> CONE;
+        };
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context)
     {
-        switch(type)
-        {
-            case CONE:
-                return CONE_COL;
-            case BARREL:
-                return BARREL_COL;
-            case BOLLARD:
-                return BOLLARD_COL;
-            default:
-                return CONE;
-        }
+        return switch (type) {
+            case CONE -> CONE_COL;
+            case BARREL -> BARREL_COL;
+            case BOLLARD -> BOLLARD_COL;
+            default -> CONE;
+        };
     }
 
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
@@ -156,7 +147,7 @@ public class ConeBlock extends CustomBlock implements SimpleWaterloggedBlock
             this.name = name;
         }
 
-        public String getSerializedName()
+        public @NotNull String getSerializedName()
         {
             return this.name;
         }

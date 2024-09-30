@@ -13,14 +13,15 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tv.mapper.mapperbase.util.ConfigChecker;
 import tv.mapper.mapperbase.world.item.BaseGroups;
 import tv.mapper.roadstuff.config.Settings;
 import tv.mapper.roadstuff.network.RSNetwork;
 import tv.mapper.roadstuff.proxy.ClientProxy;
 import tv.mapper.roadstuff.proxy.IProxy;
 import tv.mapper.roadstuff.proxy.ServerProxy;
-import tv.mapper.roadstuff.world.RSConfiguredFeatures;
-import tv.mapper.roadstuff.world.RSPlacedFeatures;
+//import tv.mapper.roadstuff.world.RSConfiguredFeatures;
+//import tv.mapper.roadstuff.world.RSPlacedFeatures;
 import tv.mapper.roadstuff.world.item.ModItemGroups;
 import tv.mapper.roadstuff.world.item.RSItemRegistry;
 import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
@@ -45,18 +46,18 @@ public class RoadStuff {
             LOGGER.info("Road Stuff worldgen is disabled by config.");
         else {
 
-            RSConfiguredFeatures.register(modEventBus);
-            RSPlacedFeatures.register(modEventBus);
-            //  ConfigChecker.checkConfig(Settings.BITUMEN_BIOME_LIST.get(), MODID);
+//            RSConfiguredFeatures.register(modEventBus);
+//            RSPlacedFeatures.register(modEventBus);
+//              ConfigChecker.checkConfig(Settings.BITUMEN_BIOME_LIST.get(), MODID);
         }
 
         RSBlockRegistry.init();
         RSItemRegistry.init();
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
-        MinecraftForge.EVENT_BUS.register(new ModItemGroups());
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::clientSetup);
+        modEventBus.addListener(this::serverSetup);
+        modEventBus.register(new ModItemGroups());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

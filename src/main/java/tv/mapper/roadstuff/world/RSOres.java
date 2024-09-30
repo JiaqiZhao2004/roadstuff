@@ -1,4 +1,4 @@
-//package tv.mapper.roadstuff.world;
+package tv.mapper.roadstuff.world;
 //
 //import net.minecraft.core.Holder;
 //import net.minecraft.data.worldgen.features.CaveFeatures;
@@ -22,7 +22,7 @@
 //
 //import static net.minecraft.data.worldgen.features.OreFeatures.STONE_ORE_REPLACEABLES;
 //
-//public class RSOres {
+public class RSOres {
 //
 //    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> BITUMEN_CONF = FeatureUtils.register("bitumen", Feature.ORE, new OreConfiguration(STONE_ORE_REPLACEABLES, RSBlockRegistry.BITUMEN_ORE.get().defaultBlockState(), CommonConfig.BITUMEN_SIZE.get()));
 //
@@ -42,6 +42,5 @@
 //    public static void initOres() {
 //        OreList.addOre(bitumen);
 //    }
-//}
-//
-//
+}
+

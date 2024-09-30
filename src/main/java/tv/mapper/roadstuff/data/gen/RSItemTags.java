@@ -1,21 +1,22 @@
 package tv.mapper.roadstuff.data.gen;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import tv.mapper.roadstuff.RoadStuff;
+import net.minecraftforge.data.event.GatherDataEvent;
+import org.jetbrains.annotations.NotNull;
 import tv.mapper.roadstuff.data.RSTags;
 import tv.mapper.roadstuff.world.item.RSItemRegistry;
 
 public class RSItemTags extends ItemTagsProvider
 {
-    public RSItemTags(DataGenerator generatorIn, RSBlockTags provider, ExistingFileHelper existingFileHelper)
+    public RSItemTags(GatherDataEvent event, RSBlockTags blockTagProvider, String modId, ExistingFileHelper existingFileHelper)
     {
-        super(generatorIn, provider, RoadStuff.MODID, existingFileHelper);
+        super(event.getGenerator().getPackOutput(), event.getLookupProvider(), blockTagProvider.contentsGetter(), modId, existingFileHelper);
     }
 
-    public void addTags()
+    public void addTags(HolderLookup.@NotNull Provider provider)
     {
         this.tag(RSTags.Items.ASPHALT).add(RSItemRegistry.ASPHALT_ITEM.get());
         this.tag(RSTags.Items.CONCRETE).add(RSItemRegistry.CONCRETE_ITEM.get());

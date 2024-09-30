@@ -33,7 +33,7 @@ public class RSGenerators
         RSBlockTags rsBlockTags = new RSBlockTags(event, modid, existingFileHelper);
 
         generator.addProvider(true,rsBlockTags);
-        generator.addProvider(true,new RSItemTags(generator, rsBlockTags, existingFileHelper));
+        generator.addProvider(true,new RSItemTags(event, rsBlockTags, RoadStuff.MODID, existingFileHelper));
         generator.addProvider(true,new RSLang(generator, modid, "en_us"));
         generator.addProvider(true,new RSLang(generator, modid, "fr_fr"));
     }

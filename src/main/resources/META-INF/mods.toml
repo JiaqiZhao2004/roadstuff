@@ -23,13 +23,13 @@ description='''Road Stuff 2 brings you everything you need to create the roads o
 [[dependencies.roadstuff]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.roadstuff]]
     modId="mapperbase"
     mandatory=true
-    versionRange="[1.19.2-4.0,)"
+    versionRange="[1.19.4-4.0,)"
     ordering="AFTER"
     side="BOTH"

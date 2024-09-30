@@ -1,5 +1,6 @@
 package tv.mapper.roadstuff;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tv.mapper.mapperbase.world.item.BaseGroups;
 import tv.mapper.roadstuff.config.Settings;
 import tv.mapper.roadstuff.network.RSNetwork;
 import tv.mapper.roadstuff.proxy.ClientProxy;
@@ -19,6 +21,7 @@ import tv.mapper.roadstuff.proxy.IProxy;
 import tv.mapper.roadstuff.proxy.ServerProxy;
 import tv.mapper.roadstuff.world.RSConfiguredFeatures;
 import tv.mapper.roadstuff.world.RSPlacedFeatures;
+import tv.mapper.roadstuff.world.item.ModItemGroups;
 import tv.mapper.roadstuff.world.item.RSItemRegistry;
 import tv.mapper.roadstuff.world.level.block.RSBlockRegistry;
 
@@ -53,6 +56,7 @@ public class RoadStuff {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
+        MinecraftForge.EVENT_BUS.register(new ModItemGroups());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

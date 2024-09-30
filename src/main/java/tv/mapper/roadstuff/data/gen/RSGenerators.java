@@ -7,6 +7,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import tv.mapper.roadstuff.RoadStuff;
 
+import java.util.Collections;
+import java.util.List;
+
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RSGenerators
 {
@@ -18,7 +21,11 @@ public class RSGenerators
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(true,new RSRecipes(generator));
-        generator.addProvider(true,new RSLootTables(generator));
+        generator.addProvider(true,new RSLootTables(generator,
+                // Specify registry names of tables that are required to generate, or can leave empty
+                Collections.emptySet(),
+                // Sub providers which generate the loot
+                List.of()));
         generator.addProvider(true,new RSBlockStates(generator, modid, existingFileHelper));
         generator.addProvider(true,new RSBlockModels(generator, modid, existingFileHelper));
         generator.addProvider(true,new RSItemModels(generator, modid, existingFileHelper));

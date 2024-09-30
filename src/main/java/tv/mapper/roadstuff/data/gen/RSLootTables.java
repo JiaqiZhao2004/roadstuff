@@ -1,9 +1,12 @@
 package tv.mapper.roadstuff.data.gen;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -24,8 +27,8 @@ import static tv.mapper.roadstuff.util.BlockHelper.getUnpaintedBlock;
 import static tv.mapper.roadstuff.world.level.block.RSBlockRegistry.nameToPaintableBlockMap;
 
 public class RSLootTables extends BaseLootTables {
-    public RSLootTables(DataGenerator dataGeneratorIn) {
-        super(dataGeneratorIn);
+    public RSLootTables(DataGenerator generator, Set<ResourceLocation> lootTables, List<SubProviderEntry> subProviderEntryList) {
+        super(generator, lootTables, subProviderEntryList);
     }
 
     @Override

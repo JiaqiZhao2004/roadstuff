@@ -104,7 +104,7 @@ public class GuiBrush extends Screen
     {
         super.render(stack, mouseX, mouseY, partialTicks);
 
-        renderBackground(stack, 0);
+        renderBackground(stack);
         RenderSystem.setShaderTexture(0, brush_gui);
         blit(stack, guiLeft, guiTop, 0, 0, WIDTH, HEIGHT);
 

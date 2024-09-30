@@ -51,7 +51,6 @@ public class ReflectorBlock extends CustomBlock implements SimpleWaterloggedBloc
         this.isLuminescent = isLuminescent;
     }
 
-    @Override
     public boolean isPossibleToRespawnInThis()
     {
         return true;

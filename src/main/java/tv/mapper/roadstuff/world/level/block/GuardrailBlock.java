@@ -72,7 +72,7 @@ public class GuardrailBlock extends CrossCollisionBlock implements ToolManager
     public boolean canConnect(BlockState p_220111_1_, boolean p_220111_2_, Direction p_220111_3_)
     {
         Block block = p_220111_1_.getBlock();
-        boolean flag = block instanceof GuardrailBlock && p_220111_1_.getMaterial() == this.material;
+        boolean flag = block instanceof GuardrailBlock && p_220111_1_.getBlock() == this.asBlock();
         return !isExceptionForConnection(block.defaultBlockState()) && p_220111_2_ || flag;
     }
 

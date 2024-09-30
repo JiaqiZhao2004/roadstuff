@@ -18,7 +18,7 @@ public class ModItemGroups
 {
     @SubscribeEvent
     public static void buildContents(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(new ResourceLocation(RoadStuff.MODID, "roadstuff_group"), builder ->
+        event.registerCreativeModeTab(new ResourceLocation(RoadStuff.MODID, "roadstuff"), builder ->
                 builder.title(Component.translatable("itemGroup.roadstuff_group"))
                         .icon(() -> new ItemStack(RSBlockRegistry.TRAFFIC_CONE_BLOCKS.get(DyeColor.ORANGE).get()))
                         .displayItems((parameters, output) -> {
@@ -63,124 +63,53 @@ public class ModItemGroups
                             output.accept(RSItemRegistry.DIAMOND_PAINT_BRUSH.get());
                             output.accept(RSItemRegistry.NETHERITE_PAINT_BRUSH.get());
 
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.TRAFFIC_CONE_ITEMS.get(DyeColor.BLACK).get());
+                            RSItemRegistry.TRAFFIC_CONE_ITEMS.values().forEach(item -> output.accept(item.get()));
+                            RSItemRegistry.TRAFFIC_BARREL_ITEMS.values().forEach(item -> output.accept(item.get()));
+                            RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.values().forEach(item -> output.accept(item.get()));
+                            RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.values().forEach(item -> output.accept(item.get()));
+                            RSItemRegistry.GUARDRAIL_ITEMS.values().forEach(item -> output.accept(item.get()));
+                            RSItemRegistry.REFLECTOR_ITEMS.values().forEach(item -> output.accept(item.get()));
+                            RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.values().forEach(item -> output.accept(item.get()));
 
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BARREL_ITEMS.get(DyeColor.BLACK).get());
+                            output.accept(RSBlockRegistry.CONCRETE.get());
+                            output.accept(RSBlockRegistry.CONCRETE_STAIRS.get());
+                            output.accept(RSBlockRegistry.CONCRETE_SLAB.get());
+                            output.accept(RSBlockRegistry.CONCRETE_WALL.get());
+                            output.accept(RSBlockRegistry.CONCRETE_FENCE.get());
+                            output.accept(RSBlockRegistry.CONCRETE_FENCE_GATE.get());
+                            output.accept(RSBlockRegistry.CONCRETE_SLOPE.get());
+                            output.accept(RSBlockRegistry.ASPHALT.get());
+                            output.accept(RSBlockRegistry.ASPHALT_STAIRS.get());
+                            output.accept(RSBlockRegistry.ASPHALT_SLAB.get());
+                            output.accept(RSBlockRegistry.ASPHALT_SLOPE.get());
+                            output.accept(RSBlockRegistry.RED_ASPHALT.get());
+                            output.accept(RSBlockRegistry.RED_ASPHALT_SLOPE.get());
+                            output.accept(RSBlockRegistry.GREEN_ASPHALT.get());
+                            output.accept(RSBlockRegistry.GREEN_ASPHALT_SLOPE.get());
+                            output.accept(RSBlockRegistry.BLUE_ASPHALT.get());
+                            output.accept(RSBlockRegistry.BLUE_ASPHALT_SLOPE.get());
+                            output.accept(RSBlockRegistry.YELLOW_ASPHALT.get());
+                            output.accept(RSBlockRegistry.YELLOW_ASPHALT_SLOPE.get());
+                            output.accept(RSBlockRegistry.BITUMEN_BLOCK.get());
+                            output.accept(RSBlockRegistry.BITUMEN_ORE.get());
+                            output.accept(RSBlockRegistry.YELLOW_BOLLARD.get());
+                            output.accept(RSBlockRegistry.WHITE_BOLLARD.get());
+                            output.accept(RSBlockRegistry.RED_BOLLARD.get());
+                            output.accept(RSBlockRegistry.YELLOW_SMALL_BOLLARD.get());
+                            output.accept(RSBlockRegistry.WHITE_SMALL_BOLLARD.get());
+                            output.accept(RSBlockRegistry.RED_SMALL_BOLLARD.get());
+                            output.accept(RSBlockRegistry.STEEL_GUARDRAIL.get());
+                            output.accept(RSBlockRegistry.PAINT_BUCKET.get());
+                            output.accept(RSBlockRegistry.ASPHALT_PRESSURE_PLATE.get());
+                            output.accept(RSBlockRegistry.CONCRETE_PRESSURE_PLATE.get());
 
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.TRAFFIC_BOLLARD_ITEMS.get(DyeColor.BLACK).get());
-
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.CYLINDRICAL_BOLLARD_ITEMS.get(DyeColor.BLACK).get());
-
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.GUARDRAIL_ITEMS.get(DyeColor.BLACK).get());
-
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.REFLECTOR_ITEMS.get(DyeColor.BLACK).get());
-
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.WHITE).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.ORANGE).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.MAGENTA).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.LIGHT_BLUE).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.YELLOW).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.LIME).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.PINK).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.GRAY).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.LIGHT_GRAY).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.CYAN).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.PURPLE).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.BLUE).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.BROWN).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.GREEN).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.RED).get());
-                            output.accept(RSItemRegistry.LUMINESCENT_REFLECTOR_ITEMS.get(DyeColor.BLACK).get());
+                            RSBlockRegistry.TRAFFIC_CONE_BLOCKS.values().forEach(item -> output.accept(item.get()));
+                            RSBlockRegistry.TRAFFIC_BARREL_BLOCKS.values().forEach(item -> output.accept(item.get()));
+                            RSBlockRegistry.TRAFFIC_BOLLARD_BLOCKS.values().forEach(item -> output.accept(item.get()));
+                            RSBlockRegistry.CYLINDRICAL_BOLLARD_BLOCKS.values().forEach(item -> output.accept(item.get()));
+                            RSBlockRegistry.REFLECTOR_BLOCKS.values().forEach(item -> output.accept(item.get()));
+                            RSBlockRegistry.LUMINESCENT_REFLECTOR_BLOCKS.values().forEach(item -> output.accept(item.get()));
+                            RSBlockRegistry.GUARDRAIL_BLOCKS.values().forEach(item -> output.accept(item.get()));
                         })
         );
     }

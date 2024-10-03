@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[47,)"
 license="MIT License"
 issueTrackerURL="https://github.com/MapperTV/roadstuff/issues"
 [[mods]]
@@ -16,7 +16,7 @@ description='''Road Stuff 2 brings you everything you need to create the roads o
 [[dependencies.roadstuff]]
     modId="forge"
     mandatory=true
-    versionRange="[45,)"
+    versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
 
